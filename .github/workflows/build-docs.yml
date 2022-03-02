@@ -106,9 +106,9 @@ jobs:
       - name: Copy Doxygen files
         run: |
           mkdir ./backup
-          cp ./docs/CNAME ./backup
-          cp ./docs/robots.txt ./backup
-          cp ./docs/.nojekyll ./backup
+          cp ./docs/CNAME ./backup || true
+          cp ./docs/robots.txt ./backup || true
+          cp ./docs/.nojekyll ./backup || true
           rm -rf ./docs
           cp -r ./pocketmine-mp/doxygen/Documentation ./docs
           cp ./backup/* ./docs
