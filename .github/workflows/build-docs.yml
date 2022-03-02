@@ -105,10 +105,13 @@ jobs:
 
       - name: Copy Doxygen files
         run: |
-          rm -rf ${{ github.workspace }}/docs
-          cp -r ${{ github.workspace }}/pocketmine-mp/doxygen/Documentation ${{ github.workspace }}/docs
-          cp ${{ github.workspace }}/aux/* ${{ github.workspace }}/docs/
-          touch ${{ github.workspace }}/docs/.nojekyll
+          mkdir ./backup
+          cp ./docs/CNAME ./backup
+          cp ./docs/robots.txt ./backup
+          cp ./docs/.nojekyll ./backup
+          rm -rf ./docs
+          cp -r ./pocketmine-mp/doxygen/Documentation ./docs
+          cp ./backup/* ./docs
 
       - name: Commit updated documentation
         run: |
