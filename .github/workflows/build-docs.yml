@@ -108,10 +108,10 @@ jobs:
           mkdir ./backup
           cp ./docs/CNAME ./backup || true
           cp ./docs/robots.txt ./backup || true
-          cp ./docs/.nojekyll ./backup || true
           rm -rf ./docs
           cp -r ./pocketmine-mp/doxygen/Documentation ./docs
           cp ./backup/* ./docs
+          touch ./docs/.nojekyll
 
       - name: Commit updated documentation
         run: |
