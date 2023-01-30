@@ -17,6 +17,9 @@ on:
         type: string
         required: false
         default: '8.0.16'
+      pm-version-major:
+        type: string
+        required: true
 
 jobs:
   build:
@@ -61,10 +64,11 @@ jobs:
           path: pocketmine-mp
 
       - name: Build and prepare PHP cache
-        uses: pmmp/setup-php-action@aa636a4fe0c1c035fd9a3f05e360eadd86e06440
+        uses: pmmp/setup-php-action@4d1b890176aa299211f4ccae76ddbf9bd008bbd6
         with:
           php-version: ${{ inputs.php-version }}
           install-path: "./bin"
+          pm-version-major: ${{ inputs.pm-version-major }}
 
       #TODO: this composer stuff really needs to be de-duplicated :(
       - name: Install Composer
