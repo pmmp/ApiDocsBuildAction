@@ -64,7 +64,7 @@ jobs:
           path: pocketmine-mp
 
       - name: Build and prepare PHP cache
-        uses: pmmp/setup-php-action@4d1b890176aa299211f4ccae76ddbf9bd008bbd6
+        uses: pmmp/setup-php-action@fa2accea978a84097cf40ecc7d46b2d71f258bd5
         with:
           php-version: ${{ inputs.php-version }}
           install-path: "./bin"
