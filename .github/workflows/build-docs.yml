@@ -63,16 +63,12 @@ jobs:
           fetch-depth: 1
           path: pocketmine-mp
 
-      - name: Build and prepare PHP cache
+      - name: Setup PHP
         uses: pmmp/setup-php-action@2.0.0
         with:
           php-version: ${{ inputs.php-version }}
           install-path: "./bin"
           pm-version-major: ${{ inputs.pm-version-major }}
-
-      #TODO: this composer stuff really needs to be de-duplicated :(
-      - name: Install Composer
-        run: curl -sS https://getcomposer.org/installer | php
 
       - name: Restore Composer package cache
         uses: actions/cache@v3
@@ -86,7 +82,7 @@ jobs:
 
       - name: Install Composer dependencies
         working-directory: ${{ github.workspace }}/pocketmine-mp
-        run: php ${{ github.workspace }}/composer.phar install --prefer-dist --no-interaction
+        run: composer install --prefer-dist --no-interaction
 
       - name: Get PocketMine-MP release version
         id: get-pm-version
