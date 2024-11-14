@@ -12,11 +12,11 @@ on:
       doxygen-version:
         type: string
         required: false
-        default: '1_9_3'
+        default: '1_12_0'
       php-version:
         type: string
         required: false
-        default: '8.1'
+        default: '8.2'
       pm-version-major:
         type: string
         required: true
