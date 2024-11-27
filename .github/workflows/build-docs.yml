@@ -64,7 +64,7 @@ jobs:
           path: pocketmine-mp
 
       - name: Setup PHP
-        uses: pmmp/setup-php-action@3.1.0
+        uses: pmmp/setup-php-action@3.2.0
         with:
           php-version: ${{ inputs.php-version }}
           install-path: "./bin"
