@@ -113,6 +113,10 @@ jobs:
           cp ./backup/* ./docs
           touch ./docs/.nojekyll
 
+      - name: Fix Unicode escapes in /docs/search
+        run: |
+          find ./docs/search -name *_*.js -exec sed -i -E 's{([^\\])\\u{\1\\\\u{g' {} \;
+
       - name: Commit updated documentation
         run: |
           git config user.name github-actions
