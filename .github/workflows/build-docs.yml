@@ -23,7 +23,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     concurrency: api-docs
 
     steps:
@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/doxygen-src
-          key: doxygen-src-${{ inputs.doxygen-version }}-2
+          key: doxygen-src-${{ inputs.doxygen-version }}-3
 
       - name: Build Doxygen
         if: steps.doxygen-cache.outputs.cache-hit != 'true'
